@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <link type="text/css" href="{% static 'django_tutorial/css/styles.css' %}" rel="stylesheet"/>
+</head>
+<body>
+{% block headlinks%}
+<table>
+    <tr>
+        <th width="100" ><a href="{% url 'amcrsrs' %}">Главная</a> </th>
+        <th width="200"><a href="{% url 'djtut' %}">Учебник Django</a></th>
+    </tr>
+</table>
+{% endblock %}
+<div id="upleft"></div>
+<div id="upright"></div>
+<div id="below"></div></body>
+</html>
