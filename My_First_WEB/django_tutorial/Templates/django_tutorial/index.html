@@ -4,39 +4,45 @@
 <main class="content">
     <aside class="left_tab">Меню
         <ul id="myUL">
-  <li><span class="box">Напитки</span>
-    <ul class="nested">
-       <li>Вода</li>
-      <li>Кофе</li>
-      <li><span class="box">Чай</span>
-        <ul class="nested">
-          <li>Черный чай</li>
-          <li>Белый чай</li>
-          <li><span class="box">Зеленый чай</span>
+          <li><span class="box">Напитки</span>
             <ul class="nested">
-              <li>Сенча</li>
-              <li>Гекуро</li>
-              <li>Маття</li>
-              <li>Пи Ло Чун</li>
+               <li>Вода</li>
+              <li>Кофе</li>
+              <li><span class="box">Чай</span>
+                <ul class="nested">
+                  <li>Черный чай</li>
+                  <li>Белый чай</li>
+                  <li><span class="box">Зеленый чай</span>
+                    <ul class="nested">
+                      <li>Сенча</li>
+                      <li>Гекуро</li>
+                      <li>Маття</li>
+                      <li>Пи Ло Чун</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><span class="box">Еда</span>
+            <ul class="nested">
+                <li>Черный чай</li>
+                  <li>Белый чай</li>
             </ul>
           </li>
         </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
 
-<script>
-var toggler = document.getElementsByClassName("box");
-var i;
+        <script>
+        var toggler = document.getElementsByClassName("box");
+        var i;
 
-for (i = 0; i < toggler.length; i++) {
-  toggler[i].addEventListener("click", function() {
-    this.parentElement.querySelector(".nested").classList.toggle("active");
-    this.classList.toggle("check-box");
-  });
-}
-</script>
+        for (i = 0; i < toggler.length; i++) {
+          toggler[i].addEventListener("click", function() {
+            this.parentElement.querySelector(".nested").classList.toggle("active");
+            this.classList.toggle("check-box");
+          });
+        }
+        </script>
     </aside>
     <div class="right_tab">Контент</div>
 </main>
