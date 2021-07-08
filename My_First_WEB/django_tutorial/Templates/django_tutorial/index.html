@@ -2,46 +2,33 @@
 
 {% block content %}
 <main class="content">
-    <aside class="left_tab">Меню
-        <ul id="tree-radio" class="treeview">
-	<li>
-		<label><input type="radio" name="category" value="6"> Морепродукты</label>
-		<ul>
-			<li><label><input type="radio" name="category" value="121"> Гребешки</label></li>
-			<li><label><input type="radio" name="category" value="10"> Грибы</label>
-				<ul>
-					<li><label><input type="radio" name="category" value="107"> Белый гриб</label></li>
-					<li><label><input type="radio" name="category" value="110"> Маслята</label>
+	<aside class="left_tab"><H2>{{title}}</H2>
+		<ul id="tree-radio" class="treeview">
+			{% for element in articles %}
+				{%if element.parent_name == '0'%}
+					<li><label><a href="#">{{element.name}}</a></label>
 						<ul>
-						<li><label><input type="radio" name="category" value="110"> 1</label></li>
-						<li><label><input type="radio" name="category" value="110"> 2</label></li>
-						<li><label><input type="radio" name="category" value="110"> 3</label></li>
+							{% for element_ in articles %}
+								{% if element_.parent_name == element.name %}
+									<li><label><a href="#">{{element_.name}}</a></label>
+										<ul>
+											{% for element_1 in articles %}
+												{% if element_1.parent_name == element_.name %}
+													<li><label><a href="#">{{element_1.name}}</a></label></li>
+												{% endif %}
+											{% endfor %}
+										</ul>
+									</li>
+								{% endif %}
+							{% endfor %}
 						</ul>
 					</li>
-				</ul>
-			</li>
-
+				{%endif%}
+			{% endfor %}
 		</ul>
-	</li>
-</ul>
 
 
-<style type="text/css">
-.treeview label {
-	margin: 0;
-	display: inline-block;
-	font-size: 20px;
-	font-weight: normal;
-	line-height: 14px;
-	vertical-align: top;
-	cursor: pointer;
-}
-.treeview input {
-	margin: 0;
-	padding: 0;
-	vertical-align: top;
-}
-</style>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://snipp.ru/plugins/treeview/jquery.treeview.js"></script>
