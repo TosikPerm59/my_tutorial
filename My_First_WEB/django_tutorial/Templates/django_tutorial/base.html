@@ -9,12 +9,14 @@
 </head>
 <body>
 {% block headlinks %}
-<table>
-    <tr>
-        <th width="100" ><a href="{% url 'amcrsrs' %}">Главная</a> </th>
-        <th width="200"><a href="{% url 'djtut' %}">Учебник Django</a></th>
-    </tr>
-</table>
+<div class="head_row">
+    <table id="head_table" align="right">
+        <tr>
+            <th width="100" ><a href="{% url 'amcrsrs' %}">Главная</a> </th>
+            <th width="200"><a href="{% url 'djtut' %}">Учебник Django</a></th>
+        </tr>
+    </table>
+</div>
 {% endblock %}
 {% block content %}
 {% endblock %}

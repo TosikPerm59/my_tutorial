@@ -2,12 +2,12 @@ from django.db import models
 
 
 class Article(models.Model):
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=45)
     content = models.TextField(blank=True)
-    parent_name = models.CharField(max_length=30, default=0)
+    parent_name = models.CharField(max_length=45, default=0)
     date_of_change = models.DateField(auto_now=True)
-    status = models.CharField(max_length=30, default=0)
-    childrens = models.CharField(max_length=30, default=0)
+    status = models.CharField(max_length=45, default=0)
+    childrens = models.CharField(max_length=45, default=0)
 
     def __str__(self):
         return self.name
