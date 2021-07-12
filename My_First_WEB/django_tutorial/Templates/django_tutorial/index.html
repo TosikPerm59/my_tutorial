@@ -6,15 +6,15 @@
 		<ul id="tree-radio" class="treeview">
 			{% for element in articles %}
 				{%if element.parent_name == '0'%}
-					<li><label><a href="#">{{element.name}}</a></label>
+					<li><label><a href="{% url 'article' element.id %}">{{element.name}}</a></label>
 						<ul>
 							{% for element_ in articles %}
 								{% if element_.parent_name == element.name %}
-									<li><label><a href="#">{{element_.name}}</a></label>
+									<li><label><a href="{% url 'article' element_.id %}">{{element_.name}}</a></label>
 										<ul>
 											{% for element_1 in articles %}
 												{% if element_1.parent_name == element_.name %}
-													<li><label><a href="#">{{element_1.name}}</a></label></li>
+													<li><label><a href="{% url 'article' element_1.id %}">{{element_1.name}}</a></label></li>
 												{% endif %}
 											{% endfor %}
 										</ul>
@@ -40,6 +40,16 @@ $('#tree-radio').treeview({
 });
 </script>
     </aside>
-    <div class="right_tab">Контент</div>
+    <div class="right_tab">
+		<div class="content_right_tab">
+			{% for element in articles %}
+				{%if element.id == article_id%}
+					<H2>{{element.name}}</H2>
+					<br>
+					<p>{{element.content|linebreaks}}</p>
+				{%endif%}
+			{%endfor%}
+		</div>
+	</div>
 </main>
 {% endblock %}

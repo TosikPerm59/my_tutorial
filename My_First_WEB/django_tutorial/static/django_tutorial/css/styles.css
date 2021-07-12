@@ -1,3 +1,7 @@
+{% load static %}
+{% load media %}
+
+
 html, body {
 	font-family: 'Arial';
 	margin: 0;
@@ -35,13 +39,17 @@ a:hover {
     height: inherit;
 }
 
+.content_right_tab {
+    margin: 3%;
+}
+
 .left_tab {
 
     padding: 15px;
     font-size: 8px;
-    background:url('django_tutorial/images/tree.png') #9ACD32;
-
+    background: url(tree.png) #9ACD32;
 }
+
 
 .left_tab:hover {
 zoom: 140%;

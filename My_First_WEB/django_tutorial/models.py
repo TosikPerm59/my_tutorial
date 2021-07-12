@@ -1,3 +1,5 @@
+from audioop import reverse
+
 from django.db import models
 
 
@@ -12,7 +14,5 @@ class Article(models.Model):
     def __str__(self):
         return self.name
 
-    # def defining_childrens(self):
-    #     for article_ in Article.objects.all():
-    #         if article_.parent_name == self.name:
-    #             return article_.name
+    def get_absolute_url(self):
+        return reverse('article', kwargs={'article_id': self.id})
