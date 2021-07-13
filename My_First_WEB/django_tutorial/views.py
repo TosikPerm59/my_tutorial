@@ -1,12 +1,12 @@
 from django import db
 from django.shortcuts import render
+
+from django_tutorial.Templates.temlatetags.django_tutorial_tags import get_articles
 from django_tutorial.models import *
 
-
 def index_djtut(reqest):
-    articles = Article.objects.all()
     context = {
-        'articles': articles,
+        'articles': get_articles,
         'title': 'Учебные материалы'
     }
 
@@ -14,10 +14,8 @@ def index_djtut(reqest):
 
 
 def show_article(reqest, article_id):
-    articles = Article.objects.all()
-    # art = Article.objects.filter(pk=article_id)
     context = {
-        'articles': articles,
+        'articles': get_articles,
         'article_id': article_id,
         'title': 'Учебные материалы'
     }
