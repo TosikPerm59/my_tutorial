@@ -5,6 +5,7 @@ from django.db import models
 
 class Article(models.Model):
     name = models.CharField(max_length=45)
+    links = models.TextField(blank=True, null=True)
     content = models.TextField(blank=True)
     parent_name = models.CharField(max_length=45, default=0)
     date_of_change = models.DateField(auto_now=True)

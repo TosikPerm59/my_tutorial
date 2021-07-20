@@ -45,8 +45,12 @@ $('#tree-radio').treeview({
 			{% for element in articles %}
 				{%if element.id == article_id%}
 					<H2>{{element.name}}</H2>
-					<br>
-					<p>{{element.content|linebreaks}}</p>
+							{% autoescape off%}
+								{% for link in links %}
+									<strong><a href="{{ link }}">{{ link }}</a></strong><br>
+								{% endfor %}
+									<p>{{element.content|linebreaks}}</p>
+							{% endautoescape %}
 				{%endif%}
 			{%endfor%}
 		</div>
