@@ -1,8 +1,22 @@
 {% extends 'django_tutorial/base.html' %}
 
+{% block headlinks %}
+	<div class="search_string">
+		<form>
+			<input type="text" value="Поиск по сайту">
+			<button type="submit"></button>
+		</form>
+	</div>
+	<div class="head_buttons">
+		<div class="buttons"><a href="{% url 'amcrsrs' %}">Главная</a></div>
+		<div class="buttons"><a href="{% url 'djtut' %}">Учебник Django</a></div>
+		<div class="buttons"><a href="http://127.0.0.1:8000/admin/django_tutorial/article/">Админка</a></div>
+	</div>
+{% endblock%}
+
 {% block content %}
-<main class="content">
-	<aside class="left_tab"><H2>{{title}}</H2>
+	<aside class="left_tab">
+		<div class="list"><H2>{{title}}</H2>
 		<ul id="tree-radio" class="treeview">
 			{% for element in articles %}
 				{%if element.parent_name == '0'%}
@@ -14,7 +28,9 @@
 										<ul>
 											{% for element_1 in articles %}
 												{% if element_1.parent_name == element_.name %}
-													<li><label><a href="{% url 'article' element_1.id %}">{{element_1.name}}</a></label></li>
+													<li><label><a href="{% url 'article' element_1.id %}">
+														{{element_1.name}}
+													</a></label></li>
 												{% endif %}
 											{% endfor %}
 										</ul>
@@ -30,30 +46,34 @@
 
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://snipp.ru/plugins/treeview/jquery.treeview.js"></script>
-<script>
-$('#tree-radio').treeview({
-	collapsed: true,
-	animated: 'fast',
-	unique: true
-});
-</script>
-    </aside>
-    <div class="right_tab">
-		<div class="content_right_tab">
-			{% for element in articles %}
-				{%if element.id == article_id%}
-					<H2>{{element.name}}</H2>
-							{% autoescape off%}
-								{% for link in links %}
-									<strong><a href="{{ link }}">{{ link }}</a></strong><br>
-								{% endfor %}
-									<p>{{element.content|linebreaks}}</p>
-							{% endautoescape %}
-				{%endif%}
-			{%endfor%}
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="https://snipp.ru/plugins/treeview/jquery.treeview.js"></script>
+		<script>
+			$('#tree-radio').treeview({
+				collapsed: true,
+				animated: 'fast',
+				unique: true
+			});
+		</script>
 		</div>
-	</div>
-</main>
+    </aside>
+	<section class="content">
+		{% for element in articles %}
+			{%if element.id == article_id%}
+				<H2>{{element.name}}</H2>
+					{% autoescape off%}
+						{% for link in links %}
+							<a href="{{ link }}">{{ link }}</a><br>
+						{% endfor %}
+						<p>{{element.content|linebreaks}}</p>
+					{% endautoescape %}
+			{%endif%}
+		{%endfor%}
+	</section>
+
+	<aside class="right_tab">
+		<p>Правый блок</p>
+	</aside>
+
 {% endblock %}
+

@@ -10,17 +10,18 @@
     <link rel="stylesheet" href="https://snipp.ru/plugins/treeview/jquery.treeview.css">
 </head>
 <body>
-{% block headlinks %}
-<div class="head_row">
-    <table id="head_table" align="right">
-        <tr>
-            <th width="100" ><a href="{% url 'amcrsrs' %}">Главная</a> </th>
-            <th width="200"><a href="{% url 'djtut' %}">Учебник Django</a></th>
-        </tr>
-    </table>
-</div>
-{% endblock %}
-{% block content %}
-{% endblock %}
+    <div class="flex-container">
+        <div class="header">
+            {% block headlinks %}
+            {% endblock %}
+        </div>
+        <div class="main">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <div class="footer">
+            <p align="center" ver >Это Футер!</p>
+        </div>
+    </div>
 </body>
 </html>
