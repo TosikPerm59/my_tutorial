@@ -1,6 +1,7 @@
 {% extends 'django_tutorial/base.html' %}
 
 {% block headlinks %}
+<div class="header_in">
 	<div class="search_string">
 		<form>
 			<input type="text" value="Поиск по сайту">
@@ -8,10 +9,11 @@
 		</form>
 	</div>
 	<div class="head_buttons">
-		<div class="buttons"><a href="{% url 'amcrsrs' %}">Главная</a></div>
+		<div class="buttons"><a href="{% url 'amcrsrs' %}">Amcarservice</a></div>
 		<div class="buttons"><a href="{% url 'djtut' %}">Учебник Django</a></div>
 		<div class="buttons"><a href="http://127.0.0.1:8000/admin/django_tutorial/article/">Админка</a></div>
 	</div>
+</div>
 {% endblock%}
 
 {% block content %}
@@ -61,12 +63,13 @@
 		{% for element in articles %}
 			{%if element.id == article_id%}
 				<H2>{{element.name}}</H2>
-					{% autoescape off%}
-						{% for link in links %}
-							<a href="{{ link }}">{{ link }}</a><br>
-						{% endfor %}
-						<p>{{element.content|linebreaks}}</p>
-					{% endautoescape %}
+				{% autoescape off%}
+					{% for link in links %}
+						<a href="{{ link }}">{{ link }}</a><br>
+					{% endfor %}
+				{% endautoescape %}
+				<p>{{element.content|linebreaks}}</p>
+
 			{%endif%}
 		{%endfor%}
 	</section>

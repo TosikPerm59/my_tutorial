@@ -5,7 +5,7 @@
 html, body {
 	font-family: 'Arial';
 	font-size: 16px;
-	font-family: "Roboto","Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;
+	font-family: Roboto,Lucida Grande,DejaVu Sans,Bitstream Vera Sans,Verdana,Arial,sans-serif;
 	margin: 0;
     padding: 0;
 }
@@ -20,34 +20,44 @@ html, body {
 
     .header {
         position: fixed;
-        display: flex;
+        justify-content: flex-start;
         width: 100%;
-        background: #6B8E23;
+        background: #9bc545;
         align-items: center;
     }
 
+        .header_in {
+            display: flex;
+            position: relative;
+        }
+
+        form {
+            display: contents;
+            position: relative;
+        }
+
         .search_string {
             display: flex;
-            background: #6B8E23;
+            background: #9bc545;
             flex: 3;
             order: 1;
             justify-content: flex-end;
-
+            margin: 0.4%;
         }
 
         .search_string input {
-          border: 2px solid #7BA7AB;
-          border-radius: 5px;
-          outline: none;
-          background: #F9F0DA;
-          color: #9E9C9C;
+            flex: 1;
+            border: 2px solid #7BA7AB;
+            border-radius: 5px 0 0 5px;
+            background: #F9F0DA;
+            color: #9E9C9C;
         }
 
         .search_string button {
-          border: none;
-          background: #7BA7AB;
-          border-radius: 0 5px 5px 0;
-          cursor: pointer;
+            border: none;
+            background: #7BA7AB;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
         }
 
         .search_string button:before {
@@ -60,7 +70,7 @@ html, body {
         .head_buttons {
             justify-content: flex-start;
             display: flex;
-            flex: 7;
+            flex: 6;
             font-size: 18px;
             font-weight: bold;
         }
@@ -91,20 +101,21 @@ html, body {
         .left_tab {
             width: 20%;
             padding: 10px;
-            font-size: 8px;
-            background: #9ACD32;
+            font-size: 6px;
+            background: #b3e450;
         }
 
         .left_tab:hover {
             zoom: 120%;
-            font-size: 10px;
+            font-size:10px;
+
             flex: 2;
         }
 
         .treeview label {
             margin: 0;
             display: inline-block;
-            font-size: 12px;
+            font-size: 10px;
             font-weight: normal;
             line-height: 14px;
             vertical-align: top;
@@ -112,14 +123,13 @@ html, body {
         }
 
         .content {
-            font-color: blue;
             padding: 3%;
-            background: #a1f263;
+            background: #bef486;
         }
 
         .right_tab {
             width: 10%;
-            background: yellow;
+            background: #b3e450;
         }
 
     .footer {
@@ -127,5 +137,6 @@ html, body {
         height: 5%;
         background: green;
         align-items: center;
+        justify-content: flex-end
     }
 
