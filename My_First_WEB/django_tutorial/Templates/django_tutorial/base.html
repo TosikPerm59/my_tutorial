@@ -13,6 +13,19 @@
     <div class="flex-container">
         <div class="header">
             {% block headlinks %}
+                <div class="header_in">
+	                <div class="search_string">
+		                <form class="search_string" action="{% url 'search_results'  %}" method="get">
+			                <input type="text" placeholder="Поиск по сайту" name="search_string">
+			                <button type="submit"></button>
+		                </form>
+                	</div>
+	                <div class="head_buttons">
+                        <div class="buttons"><a href="{% url 'amcrsrs' %}">Amcarservice</a></div>
+		                <div class="buttons"><a href="{% url 'djtut' %}">Учебник Django</a></div>
+		                <div class="buttons"><a href="http://127.0.0.1:8000/admin/django_tutorial/article/">Админка</a></div>
+	                </div>
+                </div>
             {% endblock %}
         </div>
         <div class="main">
@@ -20,7 +33,7 @@
             {% endblock %}
         </div>
         <div class="footer">
-            <p align="center" ver >Это Футер!</p>
+            <p align="center">Это Футер!</p>
         </div>
     </div>
 </body>

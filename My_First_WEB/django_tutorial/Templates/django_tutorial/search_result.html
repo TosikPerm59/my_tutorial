@@ -1,6 +1,5 @@
 {% extends 'django_tutorial/base.html' %}
 
-
 {% block content %}
 	<aside class="left_tab">
 		<div class="list"><H2>{{title}}</H2>
@@ -55,21 +54,9 @@
     </aside>
 
 	<section class="content">
-		<H1>{{ title}}:</H1>
-		<p>{{ search_words }}</p>
-		{% for element in articles %}
-			{%if element.id == article_id%}
-				<H2>{{element.name}}</H2>
-				<p><strong>Ссылки по теме:</strong></p>
-				{% autoescape off%}
-					{% for link in links %}
-						<a href="{{ link }}">{{ link }}</a><br>
-					{% endfor %}
-				{% endautoescape %}
-				<p>{{element.content|linebreaks}}</p>
+		<H2>{{title}}</H2>
+		<p>чпаи{{search_words}}</p>
 
-			{%endif%}
-		{%endfor%}
 	</section>
 
 	<aside class="right_tab">
@@ -77,4 +64,3 @@
 	</aside>
 
 {% endblock %}
-
