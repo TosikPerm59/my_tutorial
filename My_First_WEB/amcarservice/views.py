@@ -10,39 +10,39 @@ menu = [
 ]
 
 
-def index_amcrsrs(reqest):
-    return render(reqest, 'Amcarservice/index.html', {'menu': menu, 'title': 'Главная страница'})
+def index_amcrsrs(request):
+    return render(request, 'Amcarservice/index.html', {'menu': menu, 'title': 'Главная страница'})
 
 
 def about(reqest):
-    return render(reqest, 'Amcarservice/about.html',  {'menu': menu, 'title': 'О сайте'})
+    return render(request, 'Amcarservice/about.html',  {'menu': menu, 'title': 'О сайте'})
 
 
-def our_services(reqest):
+def our_services(request):
     return render(reqest, 'Amcarservice/our_services.html', {'menu': menu, 'title': 'Наши услуги'})
 
 
-def station_staff(reqest):
+def station_staff(request):
     posts = Amcarservice.objects.all()
     context = {
         'posts': posts,
         'menu': menu,
         'title': 'Наши сотрудники'
     }
-    return render(reqest, 'Amcarservice/station_staff.html', context=context)
+    return render(request, 'Amcarservice/station_staff.html', context=context)
 
 
-def pageNoteFound(reqest, exception):
+def pageNoteFound(request, exception):
     return HttpResponseNotFound('<h1>Страница не найдена</h1>')
 
 
-def add_page(reqest):
+def add_page(request):
     return HttpResponseNotFound('<h1>Добавление статьй</h1>')
 
 
-def contact(reqest):
+def contact(request):
     return HttpResponseNotFound('<h1>Обратная связь</h1>')
 
 
-def login(reqest):
+def login(request):
     return HttpResponseNotFound('<h1>Авторизация</h1>')

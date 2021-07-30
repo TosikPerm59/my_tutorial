@@ -55,11 +55,15 @@
     </aside>
 
 	<section class="content">
-		<H1>{{ title}}:</H1>
-		<p>{{ search_words }}</p>
+		<H1>{{ title }}: {{ search_words }} <br>
+
+			{% for variant in search_res %}
+				<a href="{% url 'article' variant.id %}">{{variant.name}}</a>
+			{% endfor %}
+
 		{% for element in articles %}
 			{%if element.id == article_id%}
-				<H2>{{element.name}}</H2>
+			 {{ element.name }}</H1>
 				<p><strong>Ссылки по теме:</strong></p>
 				{% autoescape off%}
 					{% for link in links %}

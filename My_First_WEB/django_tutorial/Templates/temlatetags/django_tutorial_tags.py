@@ -1,5 +1,6 @@
 from django import template
 from django_tutorial.models import *
+# from django_tutorial.views import query
 
 
 register = template.Library()
@@ -18,4 +19,7 @@ def links_list(element_id):
         if example.id == element_id:
             links_l = example.links.split(';')
             return links_l
+
+
+
 
