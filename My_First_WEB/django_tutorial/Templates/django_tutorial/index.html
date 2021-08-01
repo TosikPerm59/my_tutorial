@@ -3,7 +3,7 @@
 
 {% block content %}
 	<aside class="left_tab">
-		<div class="list"><H2>{{title}}</H2>
+		<div class="list"><H2>Учебные материалы</H2>
 		<ul id="tree-radio" class="treeview">
 			{% for element_0 in articles %}
 				{% if element_0.parent_name == '0' %}
@@ -55,12 +55,12 @@
     </aside>
 
 	<section class="content">
-		<H1>{{ title }}: {{ search_words }} <br>
-
-			{% for variant in search_res %}
-				<a href="{% url 'article' variant.id %}">{{variant.name}}</a>
-			{% endfor %}
-
+		{%if article_id %}
+			<strong><a target="_blank"  href="/admin/django_tutorial/article/{{article_id}}/change/">
+			Редактировать страницу
+			</a></strong>
+		{% endif %}
+		<H1>{{ title }}:
 		{% for element in articles %}
 			{%if element.id == article_id%}
 			 {{ element.name }}</H1>
