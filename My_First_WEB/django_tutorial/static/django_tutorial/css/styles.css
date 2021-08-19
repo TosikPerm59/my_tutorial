@@ -109,6 +109,10 @@ html, body {
             background: #b3e450;
         }
 
+        .expandable {
+            background:#b3e450;
+        }
+
         .left_tab:hover {
             zoom: 120%;
             font-size:10px;

@@ -4,3 +4,4 @@ from django.apps import AppConfig
 class DjangoTutorialConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'django_tutorial'
+    verbose_name = 'Учебные материалы'
