@@ -1,7 +1,8 @@
 {% extends 'django_tutorial/base.html' %}
-
+{% load cache %}
 
 {% block content %}
+{% cache 300 content %}
 	<aside class="left_tab">
 		<div class="list"><H2>Учебные материалы</H2>
 		<ul id="tree-radio" class="treeview">
@@ -38,7 +39,7 @@
 				{%endif%}
 			{% endfor %}
 		</ul>
-
+{% endcache %}
 
 
 
