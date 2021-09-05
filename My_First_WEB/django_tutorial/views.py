@@ -4,8 +4,6 @@ from django.shortcuts import render
 from django_tutorial.Templates.temlatetags.django_tutorial_tags import *
 
 
-
-
 def index_djtut(request):
     context = {
         'articles': get_articles,

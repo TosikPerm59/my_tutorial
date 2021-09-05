@@ -67,7 +67,7 @@
 				<p><strong>Ссылки по теме:</strong></p>
 				{% autoescape off%}
 					{% for link in links %}
-						<a href="{{ link }}">{{ link }}</a><br>
+						<a target="_blank" href="{{ link }}">{{ link }}</a><br>
 					{% endfor %}
 				{% endautoescape %}
 				<p>{{element.content|linebreaks}}</p>
