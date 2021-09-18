@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 
 {% load static %}
-{% load cache %}
 
 <html lang="ru">
 <head>
@@ -14,7 +13,6 @@
     <div class="flex-container">
         <div class="header">
             {% block headlinks %}
-            {% cache None headlinks %}
                 <div class="header_in">
 	                <div class="search_string">
 		                <form class="search_string" action="{% url 'search_results'  %}" method="get">
@@ -25,10 +23,9 @@
 	                <div class="head_buttons">
                         <div class="buttons"><a href="{% url 'amcrsrs' %}">Amcarservice</a></div>
 		                <div class="buttons"><a href="{% url 'djtut' %}">Учебник Django</a></div>
-		                <div class="buttons"><a href="http://127.0.0.1:8000/admin/django_tutorial/article/">Админка</a></div>
+		                <div class="buttons"><a target="_blank" href="http://127.0.0.1:8000/admin/django_tutorial/article/">Админка</a></div>
 	                </div>
                 </div>
-            {% endcache %}
             {% endblock %}
         </div>
         <div class="main">

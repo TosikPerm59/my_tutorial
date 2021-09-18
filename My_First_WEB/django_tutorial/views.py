@@ -5,9 +5,10 @@ from django_tutorial.Templates.temlatetags.django_tutorial_tags import *
 
 
 def index_djtut(request):
+
     context = {
         'articles': get_articles,
-        'title': 'Учебные материалы'
+        'title': 'Мои конспекты',
     }
 
     return render(request, 'django_tutorial/index.html',  context=context)

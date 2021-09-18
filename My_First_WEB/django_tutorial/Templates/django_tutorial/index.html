@@ -2,46 +2,45 @@
 {% load cache %}
 
 {% block content %}
-{% cache 300 content %}
-	<aside class="left_tab">
-		<div class="list"><H2>Учебные материалы</H2>
-		<ul id="tree-radio" class="treeview">
-			{% for element_0 in articles %}
-				{% if element_0.parent_name == '0' %}
-					<li><label><a href="{% url 'article' element_0.id %}">{{element_0.name}}</a></label>
-						<ul>
-							{% for element_1 in articles %}
-								{% if element_1.parent_name == element_0.name %}
-									<li><label><a href="{% url 'article' element_1.id %}">{{element_1.name}}</a></label>
-										<ul>
-											{% for element_2 in articles %}
-												{% if element_2.parent_name == element_1.name %}
-													<li><label><a href="{% url 'article' element_2.id %}">
-																{{element_2.name}}</a></label>
-														<ul>
-															{% for element_3 in articles %}
-																{% if element_3.parent_name == element_2.name %}
-																	<li><label><a href="{% url 'article' element_3.id %}">
-																		{{element_3.name}}
-																	</a></label></li>
-																{% endif%}
-															{% endfor %}
-														</ul>
-													</li>
-												{% endif %}
-											{% endfor %}
-										</ul>
-									</li>
-								{% endif %}
-							{% endfor %}
-						</ul>
-					</li>
-				{%endif%}
-			{% endfor %}
-		</ul>
+{% cache 120 treelist %}
+
+				<aside class="left_tab">
+			<div class="list"><H2>{{ title }}:</H2>
+			<ul id="tree-radio" class="treeview">
+				{% for element_0 in articles %}
+					{% if element_0.parent_name == '0' %}
+						<li><label><a href="{% url 'article' element_0.id %}">{{element_0.name}}</a></label>
+							<ul>
+								{% for element_1 in articles %}
+									{% if element_1.parent_name == element_0.name %}
+										<li><label><a href="{% url 'article' element_1.id %}">{{element_1.name}}</a></label>
+											<ul>
+												{% for element_2 in articles %}
+													{% if element_2.parent_name == element_1.name %}
+														<li><label><a href="{% url 'article' element_2.id %}">
+																	{{element_2.name}}</a></label>
+															<ul>
+																{% for element_3 in articles %}
+																	{% if element_3.parent_name == element_2.name %}
+																		<li><label><a href="{% url 'article' element_3.id %}">
+																			{{element_3.name}}
+																		</a></label></li>
+																	{% endif%}
+																{% endfor %}
+															</ul>
+														</li>
+													{% endif %}
+												{% endfor %}
+											</ul>
+										</li>
+									{% endif %}
+								{% endfor %}
+							</ul>
+						</li>
+					{%endif%}
+				{% endfor %}
+			</ul>
 {% endcache %}
-
-
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script src="https://snipp.ru/plugins/treeview/jquery.treeview.js"></script>
