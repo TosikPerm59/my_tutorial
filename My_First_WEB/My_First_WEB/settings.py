@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'debug_toolbar',
-    'amcarservice.apps.AmcarserviceConfig',
     'django_tutorial.apps.DjangoTutorialConfig',
 ]
 

@@ -18,14 +18,11 @@ from django.contrib import admin
 from django.urls import path
 
 from My_First_WEB import settings
-from amcarservice.views import *
 from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('amcarservice/', include('amcarservice.urls')),
     path('django_tutorial/', include('django_tutorial.urls')),
-
 ]
 
 if settings.DEBUG:
