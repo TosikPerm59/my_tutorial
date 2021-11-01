@@ -59,7 +59,6 @@
 			<strong><a target="_blank"  href="/admin/django_tutorial/article/{{article_id}}/change/">
 			Редактировать страницу
 			</a></strong>
-		{% endif %}
 		<H1>{{ title }}:
 		{% for element in articles %}
 			{%if element.id == article_id%}
@@ -74,10 +73,18 @@
 
 			{%endif%}
 		{%endfor%}
+		{% else %}
+			<H1>Добро пожаловать!!!</H1>
+			<H4>Меня зовут, Решетников Антон Викторович.<br>
+				Я, начинающий Python Developer. <br>
+				Это мой первый Pet Project, построенный на фрэймворке Django. <br>
+				Он служит мне конспектом по пройденным материалам.
+			</H4>
+		{% endif %}
 	</section>
 
 	<aside class="right_tab">
-		<p>Правый блок</p>
+		<p>В правой части планирую сделать словарь программиста</p>
 	</aside>
 
 {% endblock %}
